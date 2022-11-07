@@ -85,7 +85,9 @@ export default class Explore extends Component {
         <ScrollView showsVerticalScrollIndicator={false} style={styles.explore}>
           {this.renderExplore()}
         </ScrollView>
-        {this.renderFooter()}
+        <ScrollView>
+          {this.renderFooter()}
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -108,6 +110,8 @@ const styles = StyleSheet.create({
   },
   explore: {
     marginHorizontal: theme.sizes.padding * 1.25,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   image: {
     minHeight: 100,
