@@ -25,7 +25,9 @@ import {Text} from '../components';
 import {theme, mocks} from '../constants';
 
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
-import Geolocation from 'react-native-geolocation-service'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import Geolocation from 'react-native-geolocation-service';
+import AppPermission, {PERMISSION_TYPE} from '../components/AppPermission';
+import MapViewDirections from 'react-native-maps-directions'; // remove PROVIDER_GOOGLE import if not using Google Maps
 
 const {width, height} = Dimensions.get('window');
 
@@ -39,6 +41,8 @@ export default class Product extends Component {
     };
   }
   componentDidMount() {
+    // AppPermission.checkPermission(PERMISSION_TYPE.location);
+    Geolocation.requestAuthorization('always');
     Geolocation.getCurrentPosition(
       position => {
         this.setState({
@@ -117,7 +121,7 @@ export default class Product extends Component {
           <Text h2 bold>
             {product.name}
           </Text>
-          <View flex={false} row margin={[theme.sizes.base, 0]}>
+          <View margin={[theme.sizes.base, 0]} style={styles.tags}>
             {product.tags.map(tag => (
               <Text key={`tag-${tag}`} caption gray style={styles.tag}>
                 {tag}
@@ -132,8 +136,8 @@ export default class Product extends Component {
               provider={MapView.PROVIDER_GOOGLE} // remove if not using Google Maps
               style={styles.map}
               region={{
-                latitude: 16.059809,
-                longitude: 108.243498,
+                latitude: this.state.latitude,
+                longitude: this.state.longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
               }}>
@@ -142,6 +146,23 @@ export default class Product extends Component {
                   latitude: this.state.latitude,
                   longitude: this.state.longitude,
                 }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 16.052068509951948,
+                  longitude: 108.23988166899146,
+                }}
+              />
+              <MapViewDirections
+                origin={{
+                  latitude: this.state.latitude,
+                  longitude: this.state.longitude,
+                }}
+                destination={{
+                  latitude: 16.052068509951948,
+                  longitude: 108.23988166899146,
+                }}
+                apikey={'AIzaSyDNJOKjOPxPbj35btoJW1oA3yFXpIn6BJU'}
               />
             </MapView>
           </View>
@@ -182,6 +203,9 @@ const styles = StyleSheet.create({
   product: {
     paddingHorizontal: theme.sizes.base * 2,
     paddingVertical: theme.sizes.padding,
+  },
+  tags: {
+    flexDirection: 'row',
   },
   tag: {
     borderColor: theme.colors.gray2,

@@ -28,6 +28,11 @@ pod 'react-native-google-maps', :path => rn_maps_path
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+    pod 'Permission-LocationAccuracy', :path => "#{permissions_path}/LocationAccuracy"
+    pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+    pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
 
   target 'MapsMidterm2Tests' do
     inherit! :complete
