@@ -26,7 +26,6 @@ import {theme, mocks} from '../constants';
 
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
-import AppPermission, {PERMISSION_TYPE} from '../components/AppPermission';
 import MapViewDirections from 'react-native-maps-directions'; // remove PROVIDER_GOOGLE import if not using Google Maps
 
 const {width, height} = Dimensions.get('window');
@@ -112,7 +111,7 @@ export default class Product extends Component {
 
   render() {
     const {product} = this.props;
-
+    console.log('product',product)
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
         {this.renderGallery()}
@@ -140,7 +139,10 @@ export default class Product extends Component {
                 longitude: this.state.longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
-              }}>
+              }}
+              zoomEnabled={true}
+              scrollEnabled={true}
+              showsScale={true}>
               <Marker
                 coordinate={{
                   latitude: this.state.latitude,
@@ -162,7 +164,7 @@ export default class Product extends Component {
                   latitude: 16.052068509951948,
                   longitude: 108.23988166899146,
                 }}
-                apikey={'AIzaSyDNJOKjOPxPbj35btoJW1oA3yFXpIn6BJU'}
+                apikey={'AIzaSyDZsOq2g9G4w227JRePsC2KgoTdxZYA77E'}
               />
             </MapView>
           </View>
