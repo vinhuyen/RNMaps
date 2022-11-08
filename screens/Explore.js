@@ -82,12 +82,8 @@ export default class Explore extends Component {
             />
           </Button>
         </View>
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.explore}>
-          {this.renderExplore()}
-        </ScrollView>
-        <ScrollView>
-          {this.renderFooter()}
-        </ScrollView>
+        <ScrollView style={styles.explore}>{this.renderExplore()}</ScrollView>
+        {this.renderFooter()}
       </SafeAreaView>
     );
   }

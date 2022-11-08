@@ -111,7 +111,6 @@ export default class Product extends Component {
 
   render() {
     const {product} = this.props;
-    console.log('product',product)
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
         {this.renderGallery()}
@@ -141,6 +140,7 @@ export default class Product extends Component {
                 longitudeDelta: 0.0421,
               }}
               zoomEnabled={true}
+              zoomControlEnabled={true}
               scrollEnabled={true}
               showsScale={true}>
               <Marker
