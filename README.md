@@ -1,3 +1,7 @@
 # RNMaps
 
-![First screen]assets/publicImages/Simulator Screen Shot - iPhone 14 Pro Max - 2022-11-08 at 14.10.08.png
+![First screen](assets/publicImages/Screen1.png)
+
+![Second screen](assets/publicImages/Screen2.png)
+
+![Third screen](assets/publicImages/Screen3.png)
