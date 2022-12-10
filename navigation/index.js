@@ -1,14 +1,12 @@
 import React from 'react';
-
-import {theme} from '../constants';
-import {createStackNavigator} from 'react-navigation-stack';
 import Browse from '../screens/Browse';
-import {createAppContainer} from 'react-navigation';
 import Explore from '../screens/Explore';
-import {Image} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Product from '../screens/Product';
+import Welcome from '../screens/Welcome';
+import Login from '../screens/Login';
+import Forgot from '../screens/Fogot';
 //
 // const screens = createStackNavigator(
 //   {
@@ -42,7 +40,10 @@ const Stack = createNativeStackNavigator();
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Browse'}>
+      <Stack.Navigator initialRouteName={'Login'}>
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Forgot" component={Forgot} />
         <Stack.Screen name="Browse" component={Browse} />
         <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Product" component={Product} />

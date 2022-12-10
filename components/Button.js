@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import {LinearGradient} from 'expo-linear-gradient';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+// import {LinearGradient} from 'expo-linear-gradient';
 import {theme} from '../constants';
 
 class Button extends Component {
@@ -33,14 +33,14 @@ class Button extends Component {
           style={buttonStyles}
           activeOpacity={opacity}
           {...props}>
-          <LinearGradient
+          <View
             start={start}
             end={end}
             locations={locations}
             style={buttonStyles}
             colors={[startColor, endColor]}>
             {children}
-          </LinearGradient>
+          </View>
         </TouchableOpacity>
       );
     }

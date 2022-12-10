@@ -7,9 +7,9 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import {theme, mocks} from '../constants';
+import {theme} from '../constants';
 import {Button, Text} from '../components';
-// import {categories} from '../constants/mocks';
+import axios from 'axios';
 
 export default class Browse extends Component {
   state = {
@@ -17,14 +17,19 @@ export default class Browse extends Component {
     categories: [],
   };
   componentDidMount() {
-    this.setState({categories: this.props.categories});
+    axios
+      .get('https://6392a026b750c8d178e1ef17.mockapi.io/categories')
+      .then(res => {
+        const persons = res.data;
+        this.setState({categories: this.props.categories});
+      });
   }
   handleTab = tab => {
     const {categories} = this.props;
     const filtered = categories.filter(category =>
       category.tags.includes(tab.toLowerCase()),
     );
-    this.setState({active:tab, categories: filtered});
+    this.setState({active: tab, categories: filtered});
   };
   renderTab(tab) {
     const {active} = this.state;
@@ -83,9 +88,6 @@ export default class Browse extends Component {
   }
 }
 
-Browse.defaultProps = {
-  categories: mocks.categories,
-};
 
 const styles = StyleSheet.create({
   header: {
