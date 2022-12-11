@@ -7,7 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import {theme} from '../constants';
+import {mocks, theme} from '../constants';
 import {Button, Text} from '../components';
 import axios from 'axios';
 
@@ -20,7 +20,7 @@ export default class Browse extends Component {
     axios
       .get('https://6392a026b750c8d178e1ef17.mockapi.io/categories')
       .then(res => {
-        const persons = res.data;
+        const categories = res.data;
         this.setState({categories: this.props.categories});
       });
   }
@@ -56,7 +56,7 @@ export default class Browse extends Component {
           <Text h1 bold>
             Browse
           </Text>
-          <Button>
+          <Button onPress={() => navigation.navigate('Settings')}>
             <Image
               source={require('../assets/IMG_9833.png')}
               style={styles.avatar}
@@ -88,6 +88,10 @@ export default class Browse extends Component {
   }
 }
 
+Browse.defaultProps = {
+  // profile: mocks.profile,
+  categories: mocks.categories,
+};
 
 const styles = StyleSheet.create({
   header: {

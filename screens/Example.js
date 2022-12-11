@@ -112,3 +112,72 @@
 //     borderBottomColor: theme.colors.accent
 //   }
 // });
+//-------------------
+// import React, {Component} from 'react';
+// import {Block, Input} from '../components';
+// import {Button, Modal, StyleSheet, Text} from 'react-native';
+// import axios from 'axios';
+// import {categories} from '../constants/mocks';
+//
+// export default class Settings extends Component {
+//   state = {
+//     showModal: false,
+//     category: {
+//       name: '',
+//       tags: [],
+//       count: 0,
+//       id: '',
+//     },
+//   };
+//   componentDidMount() {
+//     axios
+//       .get('https://6392a026b750c8d178e1ef17.mockapi.io/categories')
+//       .then(res => {
+//         const categories = res.data;
+//         this.setState({categories: this.props.categories});
+//       });
+//   }
+//
+//   render() {
+//     return (
+//       <Block>
+//         <Block>
+//           <Block>
+//             <Input label="Name" value={this.state.category?.name} />
+//             <Input label="Tags" value={this.state.category?.tags} />
+//             <Input label="Count" value={this.state.category?.count} />
+//             {/*<Input label="Image" />*/}
+//             <Input label="ID" value={this.state.category?.id} />
+//           </Block>
+//           <Block>
+//             <Button title="Add" style={styles.button} />
+//           </Block>
+//         </Block>
+//         <Block>
+//           {categories.map((category, index)=> (
+//             <Block key={index} style={styles.list}>
+//               <Text>{category.name}</Text>
+//               <Text>{category.id}</Text>
+//               <Button title="Edit" />
+//               <Button title="Delete" />
+//             </Block>
+//           ))}
+//           <Modal />
+//         </Block>
+//       </Block>
+//     );
+//   }
+// }
+//
+// const styles = StyleSheet.create({
+//   button: {
+//     backgroundColor: 'pink',
+//     width: 50,
+//     height: 50,
+//   },
+//   list: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//   },
+// });

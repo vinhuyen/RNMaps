@@ -7,6 +7,7 @@ import Product from '../screens/Product';
 import Welcome from '../screens/Welcome';
 import Login from '../screens/Login';
 import Forgot from '../screens/Fogot';
+import Settings from '../screens/Settings';
 //
 // const screens = createStackNavigator(
 //   {
@@ -40,13 +41,14 @@ const Stack = createNativeStackNavigator();
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Login'}>
+      <Stack.Navigator initialRouteName={'Browse'}>
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Forgot" component={Forgot} />
         <Stack.Screen name="Browse" component={Browse} />
         <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Product" component={Product} />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );

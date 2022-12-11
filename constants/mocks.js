@@ -74,4 +74,16 @@ const explore = [
   require('../assets/images/explore_5.png'),
   require('../assets/images/explore_6.png'),
 ];
-export {categories, products, explore};
+
+const profile = {
+  username: 'VinhUyen',
+  location: 'Vietnam',
+  email: 'uyenxinh@gmail.com',
+  avatar: require('../assets/IMG_9833.png'),
+  budget: 1000,
+  monthly_cap: 5000,
+  notifications: true,
+  newsletter: false,
+};
+
+export {categories, products, explore, profile};
