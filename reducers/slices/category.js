@@ -1,14 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {categories} from '../../constants/mocks';
 
-
-
 const categorySlice = createSlice({
   name: 'categories',
   initialState: categories,
   reducers: {
     addCategory: (state, action) => {
-      state.push({...action.payload, id: state.length});
+      state.push(action.payload);
     },
 
     editCategory: (state, action) => {
@@ -24,7 +22,6 @@ const categorySlice = createSlice({
     },
   },
 });
-
 
 export const {
   actions: {addCategory, editCategory, deleteCategory},

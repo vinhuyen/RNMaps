@@ -8,6 +8,7 @@ import Welcome from '../screens/Welcome';
 import Login from '../screens/Login';
 import Forgot from '../screens/Fogot';
 import Settings from '../screens/Settings';
+import Signup from '../screens/Signup';
 //
 // const screens = createStackNavigator(
 //   {
@@ -41,7 +42,7 @@ const Stack = createNativeStackNavigator();
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Browse'}>
+      <Stack.Navigator initialRouteName={'Welcome'}>
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Forgot" component={Forgot} />
@@ -49,6 +50,8 @@ export default () => {
         <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Product" component={Product} />
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Signup" component={Signup} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

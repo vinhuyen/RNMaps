@@ -230,14 +230,9 @@ class Welcome extends Component {
               Login
             </Text>
           </Button>
-          <Button shadow onPress={() => navigation.navigate('SignUp')}>
+          <Button shadow onPress={() => navigation.navigate('Signup')}>
             <Text center semibold>
               Signup
-            </Text>
-          </Button>
-          <Button onPress={() => this.setState({showTerms: true})}>
-            <Text center caption gray>
-              Terms of service
             </Text>
           </Button>
         </Block>
